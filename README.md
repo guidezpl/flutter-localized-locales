@@ -2,7 +2,7 @@
 
 Locale code to name mappings for 563 locales.
 
-This package is based from the [flutter-localized-countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package.
+This package is based on the [flutter-localized-countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package.
 
 Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
 
