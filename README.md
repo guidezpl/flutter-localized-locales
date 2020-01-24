@@ -1,8 +1,8 @@
 # flutter_localized_locales
 
-Locale code (ISO 639‑2 and ISO 639-3) to name mappings for 563 locales.
+[flutter_localized_locales](https://pub.dev/packages/flutter_localized_locales) is a Flutter plugin which enables obtaining localized locale names from locale codes (ISO 639‑2 and ISO 639-3) for 563 locales.
 
-[This package](https://pub.dev/packages/flutter_localized_locales) is based on the [flutter_localized_countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package. Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
+This package is based on the [flutter_localized_countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package. Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
 
 ## Usage
 
@@ -22,7 +22,7 @@ void main() {
   );
 ```
 
-### Getting a locale name
+### Getting a locale's name
 ```LocaleNames.of(context).nameOf(String locale)```
 #### Example: On a device whose locale is English (en)
 ```dart

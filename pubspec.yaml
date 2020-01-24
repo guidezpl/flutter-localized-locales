@@ -1,6 +1,6 @@
 name: flutter_localized_locales
-description: Locale code (ISO 639‑2 and ISO 639-3) to name mappings for 563 locales
-version: 1.0.1
+description: Flutter plugin which provides locale code to name mappings for 563 locales.
+version: 1.0.2
 homepage: https://github.com/guidezpl/flutter-localized-locales
 
 environment:
