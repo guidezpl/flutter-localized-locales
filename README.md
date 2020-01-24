@@ -1,23 +1,21 @@
 # flutter_localized_locales
 
-Locale code to name mappings for 563 locales.
+Locale code (ISO 639‑2 and ISO 639-3) to name mappings for 563 locales.
 
-This package is based on the [flutter-localized-countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package.
-
-Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
-
-This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them.
+[This package](https://pub.dev/packages/flutter_localized_locales) is based on the [flutter_localized_countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package. Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
 
 ## Usage
 
 ### Loading
+This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them.
+
 ```$dart
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() {
   runApp(MaterialApp(
     localizationsDelegates: [
-      LocaleNamesLocalizationsDelegate(), // Loads relevant assets
+      LocaleNamesLocalizationsDelegate(),
       // ... more localization delegates
     ],
     ...
