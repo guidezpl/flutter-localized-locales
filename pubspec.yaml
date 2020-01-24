@@ -1,7 +1,6 @@
 name: flutter_localized_locales
 description: Locale code to name mappings for several languages
 version: 1.0.0
-author: Pierre-Louis Guidez <plg@google.com>
 homepage: https://github.com/guidezpl/flutter-localized-locales
 
 environment:
