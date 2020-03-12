@@ -32,14 +32,13 @@ class LocaleNamesLocalizationsDelegate
   const LocaleNamesLocalizationsDelegate({this.bundle});
 
   Future<List<String>> locales() async {
-    return List<String>.from(
-        await _loadJSON('languages.json') as List<dynamic>);
+    return List<String>.from(await _loadJSON('locales.json') as List<dynamic>);
   }
 
   /// Returns a [Map] of locale codes to their native locale name.
   Future<Map<String, String>> allNativeNames() async {
     return Map<String, String>.from(
-      await _loadJSON('data/_locales_native_names.json'),
+      await _loadJSON('locale_native_names.json'),
     );
   }
 
