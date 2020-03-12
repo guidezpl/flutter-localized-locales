@@ -9,7 +9,7 @@ This package is based on the [flutter_localized_countries](https://github.com/ni
 ### Loading
 This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them.
 
-```$dart
+```dart
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 
 void main() {
