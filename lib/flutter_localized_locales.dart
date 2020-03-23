@@ -43,7 +43,8 @@ class LocaleNamesLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) => true;
+  bool isSupported(Locale locale) =>
+      locales.contains(Intl.canonicalizedLocale(locale.toString()));
 
   @override
   Future<LocaleNames> load(Locale locale) async {
