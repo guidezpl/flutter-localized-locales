@@ -1,10 +1,14 @@
 library flutter_localized_locales;
 
 import 'dart:async';
+import 'dart:convert';
+
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'dart:convert';
+
+import 'package:flutter_localized_locales/locales.dart';
+import 'package:flutter_localized_locales/native_locale_names.dart';
 
 class LocaleNames {
   static LocaleNames of(BuildContext context) {
@@ -31,16 +35,11 @@ class LocaleNamesLocalizationsDelegate
   final AssetBundle bundle;
   const LocaleNamesLocalizationsDelegate({this.bundle});
 
-  Future<List<String>> locales() async {
-    return List<String>.from(await _loadJSON('locales.json') as List<dynamic>);
-  }
+  /// Returns a [Set] of all available locale codes.
+  static Set<String> get locales => Set<String>.from(all_locales);
 
   /// Returns a [Map] of locale codes to their native locale name.
-  Future<Map<String, String>> allNativeNames() async {
-    return Map<String, String>.from(
-      await _loadJSON('locale_native_names.json'),
-    );
-  }
+  static Map<String, String> get nativeLocaleNames => all_native_names;
 
   @override
   bool isSupported(Locale locale) =>
