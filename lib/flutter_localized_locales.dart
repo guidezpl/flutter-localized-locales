@@ -47,14 +47,10 @@ class LocaleNamesLocalizationsDelegate
 
   @override
   Future<LocaleNames> load(Locale locale) async {
-    final String name =
-        locale.countryCode == null ? locale.languageCode : locale.toString();
-    final String localeName = Intl.canonicalizedLocale(name);
-
-    var locales = Set<String>.from(await this.locales());
+    final String canonicalLocale = Intl.canonicalizedLocale(locale.toString());
 
     var availableLocale = Intl.verifiedLocale(
-        localeName, (locale) => locales.contains(locale),
+        canonicalLocale, (l) => locales.contains(l),
         onFailure: (_) => 'en');
     if (availableLocale == null) {
       return null;
