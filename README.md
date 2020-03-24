@@ -4,9 +4,9 @@
 
 This package is based on the [flutter_localized_countries](https://github.com/nickolas-pohilets/flutter-localized-countries) package. Data is taken from [https://github.com/umpirsky/locale-list](https://github.com/umpirsky/locale-list).
 
-## Usage
+## Getting started
 
-### Loading
+### Adding the localizations delegate
 This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them.
 
 ```dart
@@ -21,6 +21,8 @@ void main() {
     ...
   );
 ```
+
+## Usage
 
 ### Getting a locale's name
 ```LocaleNames.of(context).nameOf(String locale)```
@@ -45,20 +47,20 @@ print(LocaleNames.of(context).nameOf('zzzz'));     // français
 print(LocaleNames.of(context).nameOf('es_ZZZ'));  // espagnol
 ```
 
-*Note:* If a device's locale isn't supported, English (en) names are used.
+*Note:* If a device's locale isn't supported, English (en) names are returned.
 
 
-### Getting locale names, sorted
+### Getting all locale names, sorted
 ```LocaleNames.sortedByCode()```
 
 ```LocaleNames.sortedByName()```
 
 ### Getting all native locale names 
-```LocaleNames.allNativeNames()```
+```LocaleNames.nativeLocaleNames```
 
 For convenience, this package provides a map of locale codes to native locale names. This always returns the same data, irrespective of the device locale.
 ```dart
-print(LocaleNames.allNativeNames());      // { ... af_ZA: Afrikaans (Suid-Afrika), ... ar: ال العربية السعودية) ...  as: অসমীয়া ... fr: Français ... en: English ... }
+print(LocaleNames.nativeLocaleNames);      // { ... af_ZA: Afrikaans (Suid-Afrika), ... ar: ال العربية السعودية) ...  as: অসমীয়া ... fr: Français ... en: English ... }
 ```
 
 ## Known Bugs

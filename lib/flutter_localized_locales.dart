@@ -1,10 +1,14 @@
 library flutter_localized_locales;
 
 import 'dart:async';
+import 'dart:convert';
+
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
-import 'dart:convert';
+
+import 'package:flutter_localized_locales/locales.dart';
+import 'package:flutter_localized_locales/native_locale_names.dart';
 
 class LocaleNames {
   static LocaleNames of(BuildContext context) {
@@ -31,30 +35,22 @@ class LocaleNamesLocalizationsDelegate
   final AssetBundle bundle;
   const LocaleNamesLocalizationsDelegate({this.bundle});
 
-  Future<List<String>> locales() async {
-    return List<String>.from(await _loadJSON('locales.json') as List<dynamic>);
-  }
+  /// Returns a [Set] of all available locale codes.
+  static Set<String> get locales => Set<String>.from(all_locales);
 
   /// Returns a [Map] of locale codes to their native locale name.
-  Future<Map<String, String>> allNativeNames() async {
-    return Map<String, String>.from(
-      await _loadJSON('locale_native_names.json'),
-    );
-  }
+  static Map<String, String> get nativeLocaleNames => all_native_names;
 
   @override
-  bool isSupported(Locale locale) => true;
+  bool isSupported(Locale locale) =>
+      locales.contains(Intl.canonicalizedLocale(locale.toString()));
 
   @override
   Future<LocaleNames> load(Locale locale) async {
-    final String name =
-        locale.countryCode == null ? locale.languageCode : locale.toString();
-    final String localeName = Intl.canonicalizedLocale(name);
-
-    var locales = Set<String>.from(await this.locales());
+    final String canonicalLocale = Intl.canonicalizedLocale(locale.toString());
 
     var availableLocale = Intl.verifiedLocale(
-        localeName, (locale) => locales.contains(locale),
+        canonicalLocale, (l) => locales.contains(l),
         onFailure: (_) => 'en');
     if (availableLocale == null) {
       return null;
