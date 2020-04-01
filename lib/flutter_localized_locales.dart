@@ -42,8 +42,7 @@ class LocaleNamesLocalizationsDelegate
   static Map<String, String> get nativeLocaleNames => all_native_names;
 
   @override
-  bool isSupported(Locale locale) =>
-      locales.contains(Intl.canonicalizedLocale(locale.toString()));
+  bool isSupported(Locale locale) => true;
 
   @override
   Future<LocaleNames> load(Locale locale) async {

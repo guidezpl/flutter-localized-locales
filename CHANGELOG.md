@@ -1,3 +1,6 @@
+## [1.1.1]
+* Revert a change that caused a bug for unsupported locales
+
 ## [1.1.0]
 
 * Simplify obtaining all locales and native locale names by encoding them in Dart instead of JSON
