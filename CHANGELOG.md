@@ -1,3 +1,8 @@
+## [1.1.2]
+* Run dartfmt on locales
+* Fix example not showing up properly on pub.dev
+* Bump up dependencies and fix tests
+
 ## [1.1.1]
 * Revert a change that caused a bug for unsupported locales
 

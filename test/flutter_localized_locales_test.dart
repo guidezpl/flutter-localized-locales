@@ -24,17 +24,16 @@ class TestAssetBundle extends CachingAssetBundle {
 void main() {
   final bundle = TestAssetBundle();
   test('provides list of locales()', () {
-    expect(LocaleNamesLocalizationsDelegate.locales, completion(isNotEmpty));
+    expect(LocaleNamesLocalizationsDelegate.locales, isNotEmpty);
   });
 
   var localeDelegate = LocaleNamesLocalizationsDelegate(bundle: bundle);
   test('Locale delegate provides list of locale codes', () {
-    expect(LocaleNamesLocalizationsDelegate.locales, completion(isNotEmpty));
+    expect(LocaleNamesLocalizationsDelegate.locales, isNotEmpty);
   });
 
   test('Locale delegate provides map of native locale names', () {
-    expect(LocaleNamesLocalizationsDelegate.nativeLocaleNames,
-        completion(isNotEmpty));
+    expect(LocaleNamesLocalizationsDelegate.nativeLocaleNames, isNotEmpty);
   });
 
   void checkLocaleTranslation(Locale locale, String cc, String name) {
