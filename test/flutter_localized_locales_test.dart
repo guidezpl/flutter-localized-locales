@@ -70,23 +70,25 @@ void main() {
     checkLocaleTranslation(
         Locale('de'), 'en_GB', 'Englisch (Vereinigtes Königreich)');
   });
-  test('invalid locale string gives null', () {
+  test('returns null for an invalid locale string', () {
     checkLocaleTranslation(Locale('de'), 'zz', null);
   });
   test(
-    'falls back to language when given partially valid (invalid country) locale',
+    'locale loading falls back to language when given partially valid (invalid country) locale',
     () {
       // de_UK is not a valid locale, but de is
       checkLocaleTranslation(
           Locale('de', 'UK'), 'es_AR', 'Spanisch (Argentinien)');
     },
   );
-  test('falls back to en when given invalid locale and fallback not specified',
+  test(
+      'locale loading falls back to en when given invalid locale and fallback not specified',
       () {
     // zz is not a valid locale
     checkLocaleTranslation(Locale('zz'), 'es_AR', 'Spanish (Argentina)');
   });
-  test('falls back to fallback locale when given invalid locale', () {
+  test('locale loading falls back to fallback locale when given invalid locale',
+      () {
     localeDelegate = LocaleNamesLocalizationsDelegate(
       bundle: bundle,
       fallbackLocale: 'fr',
