@@ -48,6 +48,8 @@ print(LocaleNames.of(context).nameOf('es_ZZZ'));  // espagnol
 ```
 
 *Note:* If a device's locale isn't supported, English (en) names are returned.
+You can specify a different fallback locale. For example,
+```LocaleNamesLocalizationsDelegate(fallbackLocale: 'fr')```
 
 
 ### Getting all locale names, sorted
