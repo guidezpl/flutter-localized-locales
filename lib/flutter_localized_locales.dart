@@ -11,13 +11,14 @@ import 'package:flutter_localized_locales/locales.dart';
 import 'package:flutter_localized_locales/native_locale_names.dart';
 
 class LocaleNames {
+  final String locale;
+  final Map<String, String> data;
+
+  LocaleNames(this.locale, this.data);
+
   static LocaleNames? of(BuildContext context) {
     return Localizations.of<LocaleNames>(context, LocaleNames);
   }
-
-  final String locale;
-  final Map<String, String> data;
-  LocaleNames(this.locale, this.data);
 
   String? nameOf(String localeString) => data[localeString];
 
@@ -34,8 +35,11 @@ class LocaleNamesLocalizationsDelegate
     extends LocalizationsDelegate<LocaleNames> {
   final AssetBundle? bundle;
   final String fallbackLocale;
-  const LocaleNamesLocalizationsDelegate(
-      {this.bundle, this.fallbackLocale = 'en'});
+
+  const LocaleNamesLocalizationsDelegate({
+    this.bundle,
+    this.fallbackLocale = 'en',
+  });
 
   /// Returns a [Set] of all available locale codes.
   static Set<String> get locales => Set<String>.from(all_locales);
@@ -52,11 +56,9 @@ class LocaleNamesLocalizationsDelegate
 
     String localeToLoad;
     try {
-      localeToLoad = Intl.verifiedLocale(
-            canonicalLocale,
-            (l) => locales.contains(l),
-          ) ??
-          fallbackLocale;
+      localeToLoad =
+          Intl.verifiedLocale(canonicalLocale, (l) => locales.contains(l)) ??
+              fallbackLocale;
     } catch (_) {
       print('''
       Locale $locale is not an available locale. Falling back to '$fallbackLocale'.
