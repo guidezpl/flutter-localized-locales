@@ -19,7 +19,7 @@ class LocaleNames {
   final Map<String, String> data;
   LocaleNames(this.locale, this.data);
 
-  String nameOf(String code) => data[code];
+  String? nameOf(String localeString) => data[localeString];
 
   List<MapEntry<String, String>> get sortedByCode {
     return data.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
