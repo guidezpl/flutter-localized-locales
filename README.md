@@ -26,31 +26,27 @@ void main() {
 
 ### Getting a locale's name
 ```LocaleNames.of(context).nameOf(String locale)```
-#### Example: On a device whose locale is English (en)
+
 ```dart
-print(LocaleNames.of(context).nameOf('en_GB'));   // English (United Kingdom)
+// Invalid locale string
+print(LocaleNames.of(context).nameOf('zzzzz'));    // null
 
-// If the locale isn't supported
-print(LocaleNames.of(context).nameOf('zzzz'));     // English
+// On a device whose selected locale is English (en)
+print(LocaleNames.of(context).nameOf('en_CA'));   // English (Canada)
 
-// If the locale is invalid, but a match can be found
-print(LocaleNames.of(context).nameOf('es_ZZZ'));  // Spanish
+// On a device whose selected locale is French (fr)
+print(LocaleNames.of(context).nameOf('en_CA'));   // anglais (Canada)
+
+// On a device whose selected locale isn't supported, an attempt is made to find a matching locale
+// e.g. for a device whose locale is German (United Kingdom), returns German (de) names
+print(LocaleNames.of(context).nameOf('en_CA'));   // Englisch (Kanada)
+
+// Otherwise, English (en) names are returned. 
+// You can specify a different fallback locale with
+LocaleNamesLocalizationsDelegate(fallbackLocale: 'fr')
 ```
-#### Example: On a device whose locale is French (fr)
-```dart
-print(LocaleNames.of(context).nameOf('en_GB'));   // anglais (Royaume-Uni)
 
-// If the device locale isn't supported
-print(LocaleNames.of(context).nameOf('zzzz'));     // français
-
-// If the locale is invalid, but a match can be found
-print(LocaleNames.of(context).nameOf('es_ZZZ'));  // espagnol
-```
-
-*Note:* If a device's locale isn't supported, English (en) names are returned.
-You can specify a different fallback locale. For example,
-```LocaleNamesLocalizationsDelegate(fallbackLocale: 'fr')```
-
+Supported locales are listed in [lib/locales.dart](lib/locales.dart).
 
 ### Getting all locale names, sorted
 ```LocaleNames.sortedByCode()```
