@@ -1,3 +1,8 @@
+## [1.2.0-nullsafety.1]
+* Migrate to null safety
+* Add `LocaleNamesLocalizationsDelegate.fallbackLocale` to override 'en' default
+* Update documentation and rename test variables for clarity
+
 ## [1.1.2]
 * Run dartfmt on locales
 * Fix example not showing up properly on pub.dev
