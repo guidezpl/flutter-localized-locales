@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
     return Column(
       children: [
         Text(LocaleNames.of(context).nameOf('zzzz')),
-        Text(LocaleNames.of(context).nameOf('en_CA')),
+        Text(LocaleNames.of(context).nameOf('fr_CA')),
       ],
     );
   }

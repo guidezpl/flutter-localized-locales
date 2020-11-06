@@ -32,14 +32,14 @@ void main() {
 print(LocaleNames.of(context).nameOf('zzzzz'));    // null
 
 // On a device whose selected locale is English (en)
-print(LocaleNames.of(context).nameOf('en_CA'));   // English (Canada)
+print(LocaleNames.of(context).nameOf('fr_CA'));   // French (Canada)
 
-// On a device whose selected locale is French (fr)
-print(LocaleNames.of(context).nameOf('en_CA'));   // anglais (Canada)
+// On a device whose selected locale is Spanish (es)
+print(LocaleNames.of(context).nameOf('fr_CA'));   // francés (Canadá)
 
 // On a device whose selected locale isn't supported, an attempt is made to find a matching locale
 // e.g. for a device whose locale is German (United Kingdom), returns German (de) names
-print(LocaleNames.of(context).nameOf('en_CA'));   // Englisch (Kanada)
+print(LocaleNames.of(context).nameOf('fr_CA'));   // Französisch (Kanada)
 
 // Otherwise, English (en) names are returned. 
 // You can specify a different fallback locale with
