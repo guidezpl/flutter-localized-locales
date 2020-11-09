@@ -60,10 +60,9 @@ class LocaleNamesLocalizationsDelegate
           Intl.verifiedLocale(canonicalLocale, (l) => locales.contains(l)) ??
               fallbackLocale;
     } catch (_) {
-      print('''
-      Locale $locale is not an available locale. Falling back to '$fallbackLocale'.
-      Specify a different fallback locale with [LocaleNamesLocalizationsDelegate.fallbackLocale].
-      ''');
+      print(
+          "Locale $locale is not an available locale. Falling back to '$fallbackLocale'. "
+          "Specify a different fallback locale with [LocaleNamesLocalizationsDelegate.fallbackLocale].");
       localeToLoad = fallbackLocale;
     }
 
