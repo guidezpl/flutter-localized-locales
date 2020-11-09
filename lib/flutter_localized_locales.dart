@@ -11,15 +11,16 @@ import 'package:flutter_localized_locales/locales.dart';
 import 'package:flutter_localized_locales/native_locale_names.dart';
 
 class LocaleNames {
-  static LocaleNames of(BuildContext context) {
+  final String locale;
+  final Map<String, String> data;
+
+  LocaleNames(this.locale, this.data);
+
+  static LocaleNames? of(BuildContext context) {
     return Localizations.of<LocaleNames>(context, LocaleNames);
   }
 
-  final String locale;
-  final Map<String, String> data;
-  LocaleNames(this.locale, this.data);
-
-  String nameOf(String code) => data[code];
+  String? nameOf(String localeString) => data[localeString];
 
   List<MapEntry<String, String>> get sortedByCode {
     return data.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
@@ -32,8 +33,13 @@ class LocaleNames {
 
 class LocaleNamesLocalizationsDelegate
     extends LocalizationsDelegate<LocaleNames> {
-  final AssetBundle bundle;
-  const LocaleNamesLocalizationsDelegate({this.bundle});
+  final AssetBundle? bundle;
+  final String fallbackLocale;
+
+  const LocaleNamesLocalizationsDelegate({
+    this.bundle,
+    this.fallbackLocale = 'en',
+  });
 
   /// Returns a [Set] of all available locale codes.
   static Set<String> get locales => Set<String>.from(all_locales);
@@ -48,16 +54,21 @@ class LocaleNamesLocalizationsDelegate
   Future<LocaleNames> load(Locale locale) async {
     final String canonicalLocale = Intl.canonicalizedLocale(locale.toString());
 
-    var availableLocale = Intl.verifiedLocale(
-        canonicalLocale, (l) => locales.contains(l),
-        onFailure: (_) => 'en');
-    if (availableLocale == null) {
-      return null;
+    String localeToLoad;
+    try {
+      localeToLoad =
+          Intl.verifiedLocale(canonicalLocale, (l) => locales.contains(l)) ??
+              fallbackLocale;
+    } catch (_) {
+      print(
+          "Locale $locale is not an available locale. Falling back to '$fallbackLocale'. "
+          "Specify a different fallback locale with [LocaleNamesLocalizationsDelegate.fallbackLocale].");
+      localeToLoad = fallbackLocale;
     }
 
     final data = Map<String, String>.from(
-        await _loadJSON('data/$availableLocale.json') as Map<dynamic, dynamic>);
-    return LocaleNames(availableLocale, data);
+        await _loadJSON('data/$localeToLoad.json') as Map<dynamic, dynamic>);
+    return LocaleNames(localeToLoad, data);
   }
 
   @override
