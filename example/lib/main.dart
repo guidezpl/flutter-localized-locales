@@ -21,8 +21,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Text(LocaleNames.of(context).nameOf('en_GB')),
+        // If the locale isn't supported
         Text(LocaleNames.of(context).nameOf('zzzz')),
-        Text(LocaleNames.of(context).nameOf('fr_CA')),
+        // If the locale is invalid, but a match can be found
+        Text(LocaleNames.of(context).nameOf('es_ZZZ')),
       ],
     );
   }
