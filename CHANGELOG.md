@@ -1,4 +1,4 @@
-## [1.2.0-nullsafety]
+## [2.0.0-nullsafety]
 * Migrate to null safety
 * Add ability to override default fallback locale of 'en' with `LocaleNamesLocalizationsDelegate.fallbackLocale`
 * Improve documentation and rename test variables for clarity
