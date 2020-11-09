@@ -17,5 +17,5 @@ dev_dependencies:
   path: ^1.6.2
 
 flutter:
-   assets:
+  assets:
     - data/
