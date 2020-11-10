@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
         // ... more localization delegates
       ],
       home: Home(),
+      supportedLocales: [Locale('de', 'AT')],
     );
   }
 }
