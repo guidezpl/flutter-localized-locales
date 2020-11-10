@@ -11,15 +11,11 @@ import 'package:flutter_test/flutter_test.dart';
 import '../lib/main.dart';
 
 void main() {
-  setUpAll(() {
-    WidgetsFlutterBinding.ensureInitialized();
-  });
-  
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
+    await tester.pumpAndSettle();
 
-    final textWidgets = find.byWidgetPredicate((widget) => widget is Text);
-    print (textWidgets.evaluate());
+    await tester.pump(Duration(seconds: 2));
   });
 }
