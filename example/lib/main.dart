@@ -21,8 +21,8 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(LocaleNames.of(context).nameOf('zzzz')),
-        Text(LocaleNames.of(context).nameOf('fr_CA')),
+        Text(LocaleNames.of(context)!.nameOf('zzzz').toString()),
+        Text(LocaleNames.of(context)!.nameOf('fr_CA').toString()),
       ],
     );
   }
