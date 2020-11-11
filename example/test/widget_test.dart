@@ -5,10 +5,30 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:path/path.dart';
+import 'dart:io';
+import 'dart:typed_data';
+
+
 import '../lib/main.dart';
+
+class TestAssetBundle extends CachingAssetBundle {
+  @override
+  Future<ByteData> load(String key) async {
+    const prefix = "packages/flutter_localized_locales/";
+    if (key.startsWith(prefix)) {
+      var path = join(dirname(Directory.current.absolute.path),
+          key.substring(prefix.length));
+      var bytes = Uint8List.fromList(await File(path).readAsBytes());
+      var buffer = bytes.buffer;
+      return ByteData.view(buffer);
+    }
+    throw "Error: Locale $key could not be found";
+  }
+}
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
