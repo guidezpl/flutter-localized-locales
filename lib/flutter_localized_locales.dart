@@ -87,6 +87,8 @@ class LocaleNamesLocalizationsDelegate
     Future<dynamic> parser(String data) async => jsonDecode(data);
     final bundle = this.bundle ?? rootBundle;
     print ('Bundle is $bundle');
+    print ('rootBundle is $rootBundle');
+    print ('${bundle == rootBundle}');
     final ans = await bundle.loadStructuredData(
         'packages/flutter_localized_locales/' + key, parser);
     print ('Ans is $ans');
