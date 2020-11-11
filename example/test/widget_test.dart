@@ -17,6 +17,27 @@ import 'dart:convert' show utf8, jsonDecode;
 
 import '../lib/main.dart';
 
+class TAB2 extends CachingAssetBundle {
+  @override
+  Future<ByteData> load(String key) async {
+    print ('Loading key $key ...');
+    return await rootBundle.load(key);
+  }
+
+  @override
+  Future<String> loadString(String key, { bool cache = true }) async {
+    print ('Loading string $key ...');
+    final ByteData data = await load(key);
+    return utf8.decode(data.buffer.asUint8List());
+  }
+
+  @override
+  Future<T> loadStructuredData<T>(String key, Future<T> parser(String value)) async {
+    print ('Loading structured data $key ...');
+    return await rootBundle.loadStructuredData(key, parser);
+  }
+}
+
 class TestAssetBundle extends CachingAssetBundle {
   @override
   Future<ByteData> load(String key) async {
@@ -59,7 +80,7 @@ void main() {
           LocaleNamesLocalizationsDelegate(),
         ],
         home: DefaultAssetBundle(
-          bundle: TestAssetBundle(),
+          bundle: TAB2(),
           child: Home(),
         ),
         supportedLocales: [Locale('de', 'AT')],
