@@ -52,8 +52,6 @@ class LocaleNamesLocalizationsDelegate
 
   @override
   Future<LocaleNames> load(Locale locale) async {
-    print('! trying to load locale $locale ...');
-
     final String canonicalLocale = Intl.canonicalizedLocale(locale.toString());
 
     String localeToLoad;
@@ -68,13 +66,8 @@ class LocaleNamesLocalizationsDelegate
       localeToLoad = fallbackLocale;
     }
 
-    print ('! localeToLoad = $localeToLoad');
-
     final data = Map<String, String>.from(
         await _loadJSON('data/$localeToLoad.json') as Map<dynamic, dynamic>);
-
-    print ('! data = $data');
-
     return LocaleNames(localeToLoad, data);
   }
 
@@ -83,15 +76,10 @@ class LocaleNamesLocalizationsDelegate
     return false;
   }
 
-  Future<dynamic> _loadJSON(key) async {
+  Future<dynamic> _loadJSON(key) {
     Future<dynamic> parser(String data) async => jsonDecode(data);
     final bundle = this.bundle ?? rootBundle;
-    print ('Bundle is $bundle');
-    print ('rootBundle is $rootBundle');
-    print ('${bundle == rootBundle}');
-    final ans = await bundle.loadStructuredData(
+    return bundle.loadStructuredData(
         'packages/flutter_localized_locales/' + key, parser);
-    print ('Ans is $ans');
-    return ans;
   }
 }
