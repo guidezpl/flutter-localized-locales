@@ -6,6 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:path/path.dart';
@@ -33,7 +35,18 @@ class TestAssetBundle extends CachingAssetBundle {
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: [
+          LocaleNamesLocalizationsDelegate(),
+        ],
+        home: DefaultAssetBundle(
+          bundle: TestAssetBundle(),
+          child: Home(),
+        ),
+        supportedLocales: [Locale('de', 'AT')],
+      ),
+    );
     await tester.pumpAndSettle();
 
     await tester.pump(Duration(seconds: 2));
