@@ -1,3 +1,6 @@
+## [2.0.0-nullsafety.1]
+* Bump intl dependency to 0.17.0-nullsafety.2
+
 ## [2.0.0-nullsafety]
 * Migrate to null safety
 * Add ability to override default fallback locale of 'en' with `LocaleNamesLocalizationsDelegate.fallbackLocale`
@@ -36,7 +39,3 @@
 ## [1.0.0]
 
 * Initial release
-
-
-
-
