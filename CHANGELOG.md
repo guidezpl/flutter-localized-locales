@@ -1,5 +1,8 @@
+## [2.0.0]
+* Stable release for null safety
+
 ## [2.0.0-nullsafety.1]
-* Bump intl dependency to 0.17.0-nullsafety.2
+* Bump intl dependency tfluto 0.17.0-nullsafety.2
 
 ## [2.0.0-nullsafety]
 * Migrate to null safety
