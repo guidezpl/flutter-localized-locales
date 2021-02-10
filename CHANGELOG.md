@@ -1,3 +1,6 @@
+## [2.0.1-nullsafety.0]
+* Updates packages to null safe ones
+
 ## [2.0.0]
 * Stable release for null safety
 
