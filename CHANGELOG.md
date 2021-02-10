@@ -1,3 +1,6 @@
+## [2.0.1]
+* Fix mistake by doing dependency upgrade from beta channel instead of master channel
+
 ## [2.0.0]
 * Stable release for null safety
 
