@@ -10,9 +10,14 @@ class TestAssetBundle extends CachingAssetBundle {
   @override
   Future<ByteData> load(String key) async {
     const prefix = "packages/flutter_localized_locales/";
+    // For testing, there is no packages/flutter_localized_locales, so we
+    // load directly from the data directory
     if (key.startsWith(prefix)) {
-      var path = join(dirname(Directory.current.absolute.path),
-          key.substring(prefix.length));
+      var path = join(
+        dirname(Directory.current.absolute.path),
+        'flutter-localized-locales',
+        key.substring(prefix.length),
+      );
       var bytes = Uint8List.fromList(await File(path).readAsBytes());
       var buffer = bytes.buffer;
       return ByteData.view(buffer);
