@@ -55,10 +55,10 @@ Supported locales are listed in [lib/locales.dart](lib/locales.dart).
 
 ```LocaleNames.sortedByName()```
 
-### Native locale names 
+### Respective locale names 
 ```LocaleNames.nativeLocaleNames```
 
-For convenience, this package provides a map of locale codes to native locale names. This always returns the same data, irrespective of the device locale.
+For convenience, this package provides a map of locale codes to their respective locale names. This always returns the same data, irrespective of the device locale.
 ```dart
 print(LocaleNames.nativeLocaleNames);      // { ... af_ZA: Afrikaans (Suid-Afrika), ... ar: ال العربية السعودية) ...  as: অসমীয়া ... fr: Français ... en: English ... }
 ```
