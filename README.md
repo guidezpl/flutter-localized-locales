@@ -7,7 +7,7 @@ This package is based on the [flutter_localized_countries](https://github.com/ni
 ## Getting started
 
 ### Adding the localizations delegate
-This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them.
+This package bundles required assets and provides a [LocalizationsDelegate](https://docs.flutter.io/flutter/widgets/LocalizationsDelegate-class.html) for loading them. Specify `localizationsDelegates` for your `MaterialApp`, `CupertinoApp`, or `WidgetsApp`.
 
 ```dart
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
@@ -24,36 +24,38 @@ void main() {
 
 ## Usage
 
-### Getting a locale's name
+### Locale name
 ```LocaleNames.of(context).nameOf(String locale)```
 
 ```dart
 // Invalid locale string
 print(LocaleNames.of(context).nameOf('zzzzz'));    // null
 
-// On a device whose selected locale is English (en)
+// On a device whose locale is English (en)
 print(LocaleNames.of(context).nameOf('fr_CA'));   // French (Canada)
 
-// On a device whose selected locale is Spanish (es)
+// On a device whose locale is Spanish (es)
 print(LocaleNames.of(context).nameOf('fr_CA'));   // francés (Canadá)
 
-// On a device whose selected locale isn't supported, an attempt is made to find a matching locale
+// On a device whose locale isn't supported, an attempt is made to find a supported one
 // e.g. for a device whose locale is German (United Kingdom), returns German (de) names
 print(LocaleNames.of(context).nameOf('fr_CA'));   // Französisch (Kanada)
 
-// Otherwise, English (en) names are returned. 
-// You can specify a different fallback locale with
-LocaleNamesLocalizationsDelegate(fallbackLocale: 'fr')
+// On a device whose selected locale isn't supported, and no supported locale can be found,
+// fallback to English (en) names. 
+// You can specify a different fallback locale
+// e.g. to fallback to Afrikaans (af) names instead of English
+LocaleNamesLocalizationsDelegate(fallbackLocale: 'af')
 ```
 
 Supported locales are listed in [lib/locales.dart](lib/locales.dart).
 
-### Getting all locale names, sorted
+### All locale names, sorted
 ```LocaleNames.sortedByCode()```
 
 ```LocaleNames.sortedByName()```
 
-### Getting all native locale names 
+### Native locale names 
 ```LocaleNames.nativeLocaleNames```
 
 For convenience, this package provides a map of locale codes to native locale names. This always returns the same data, irrespective of the device locale.
