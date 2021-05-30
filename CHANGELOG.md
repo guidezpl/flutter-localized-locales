@@ -1,3 +1,8 @@
+## [2.0.2]
+* Fix test
+* Use stable null-safe dependencies
+* Improve documentation
+
 ## [2.0.1]
 * Fix mistake by doing dependency upgrade from beta channel instead of master channel
 
