@@ -1,3 +1,6 @@
+## [2.0.3]
+* Update documentation for null safety and `nativeLocaleNames`
+
 ## [2.0.2]
 * Fix test
 * Use stable null-safe dependencies

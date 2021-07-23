@@ -1,6 +1,6 @@
 name: flutter_localized_locales
 description: Flutter plugin which provides locale code to name mappings for 563 locales.
-version: 2.0.2
+version: 2.0.3
 homepage: https://github.com/guidezpl/flutter-localized-locales
 
 environment:
