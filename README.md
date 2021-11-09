@@ -1,4 +1,5 @@
-# flutter_localized_locales
+# flutter_localized_locales 
+[![pub package](https://img.shields.io/pub/v/flutter_localized_locales.svg)](https://pub.dev/packages/flutter_localized_locales)
 
 [flutter_localized_locales](https://pub.dev/packages/flutter_localized_locales) is a Flutter plugin which enables obtaining localized locale names from locale codes (ISO 639‑2 and ISO 639-3) for 563 locales.
 
