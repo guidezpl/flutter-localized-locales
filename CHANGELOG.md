@@ -1,3 +1,6 @@
+## [2.0.4]
+* Widen intl constraint
+
 ## [2.0.3]
 * Update documentation for null safety and `nativeLocaleNames`
 
