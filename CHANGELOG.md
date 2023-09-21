@@ -1,3 +1,6 @@
+## [2.0.5]
+* Add `repository` to pubspec
+ 
 ## [2.0.4]
 * Widen intl constraint
 
